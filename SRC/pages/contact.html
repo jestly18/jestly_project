@@ -136,9 +136,23 @@
         <!-- AOS -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
-            AOS.init();
-        </script>
-        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS based on screen width
+            if (window.innerWidth <= 768) {
+                AOS.init({
+                    duration: 500,  // Shorter animations for mobile devices
+                    delay: 50,      // Less delay for better responsiveness on mobile
+                    once: true      // Animations play only once when scrolling
+                });
+            } else {
+                AOS.init({
+                    duration: 1200, // Standard duration for larger screens
+                    delay: 200,     // Standard delay for smoother experience on desktops
+                    once: true      // Animations play only once when scrolling
+                });
+            }
+        });
+    </script>
 
 </body>
 
