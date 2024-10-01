@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Education</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <link rel="icon" href="/Assets/favicons/favicon.png" type="image/png" sizes="32x32">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <header class="header" id="header">
+        <a href="../../index.html" class="logo"><span class="main-icon"></span><span>Jestly</span></a>
+
+        <div class="navbar">
+            <a href="/index.html">Home</a>
+            <a href="./skills.html">Skills</a>
+            <a href="./education.html" class="active">Education</a>
+            <a href="./aboutme.html">About Me</a>
+            <a href="./career.html">Career</a>
+            <a href="./hobbies.html">Hobbies</a>
+            
+        </div>
+
+        <div class="contact">
+            <a href="contact.html" class="user main-items"><i class="fas fa-envelope cm-icon"></i>Contact Me</a>
+            <div class="main-items menu-icon-container" id="menu-icon-js">
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="page">
+        <main class="education-main" data-aos="fade-up" data-aos-duration="1200">
+            <div class="education-section">
+                    <div class="header" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="text">Education</div>
+                        <div class="border-line"></div>
+                    </div>
+
+                <div class="study first" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="image">
+                        <img class="education_image" src="/Assets/education/tertiary.jpg" alt="Tertiary Education">
+                    </div>
+                    <div class="line"></div>
+                    <div class="texts">
+                        <div class="header">Bachelor's Degree</div>
+                        <div class="name">Northwestern Mindanao State College of Science and Technology</div>
+                        <div class="year">2022-2025</div>
+                        <div class="text">Currently pursuing a Bachelor's degree in Information Technology, focusing on web development and digital innovation.</div>
+                    </div>
+                </div>
+                <div class="study second" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="image">
+                        <img class="education_image" src="/Assets/education/SHS.jpg" alt="Senior High School">
+                    </div>
+                    <div class="line"></div>
+                    <div class="texts">
+                        <div class="header">Senior High School</div>
+                        <div class="name">International College Of Philsouth</div>
+                        <div class="year">2020-2022</div>
+                        <div class="text">Completed Senior High School with a specialization in Science, Technology, Engineering, and Mathematics (STEM).</div>
+                    </div>
+                </div>
+                <div class="study third" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="image">
+                        <img class="education_image" src="/Assets/education/junior_high.jpg" alt="Junior High School">
+                    </div>
+                    <div class="line"></div>
+                    <div class="texts">
+                        <div class="header">Junior High School</div>
+                        <div class="name">Sapa Anding Agricultural Vocational Technical School</div>
+                        <div class="year">2016-2020</div>
+                        <div class="text">Graduated from Junior High School with a focus on vocational and technical education, enriching both academic and practical skills.</div>
+                    </div>
+                </div>
+                <div class="study second" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="image">
+                        <img class="education_image" src="/Assets/education/primary.jpg" alt="Elementary School">
+                    </div>
+                    <div class="line"></div>
+                    <div class="texts">
+                        <div class="header">Elementary School</div>
+                        <div class="name">Dipalusan Elementary School</div>
+                        <div class="year">2008-2016</div>
+                        <div class="text">Completed elementary education, building a strong foundation in core subjects and extracurricular activities.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        
+        <!-- Placeholder for Footer -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+
+
+
+
+    <div class="nav-touch-close" id="nav-tc-js"></div>
+
+    <script type="text/javascript" src="../script/script.js"></script>
+
+    <script>
+
+        // Fetch and load the footer
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();  // Initialize AOS
+        
+            function applyAOSEducationAnimations() {
+                const educationStudies = document.querySelectorAll('.education-section .study');
+        
+                educationStudies.forEach((study, index) => {
+                    study.removeAttribute('data-aos');  // Clear existing AOS attributes
+        
+                    // Apply different AOS animations based on screen size
+                    if (window.innerWidth >= 768) {
+                        if (index % 2 === 0) {
+                            study.setAttribute('data-aos', 'fade-right');
+                        } else {
+                            study.setAttribute('data-aos', 'fade-left');
+                        }
+                    } else {
+                        study.setAttribute('data-aos', 'fade-in');  // Subtle animations for smaller screens
+                    }
+                });
+        
+                // Refresh AOS to apply the new animations
+                AOS.refresh();
+            }
+        
+            // Initial call to apply animations based on current screen size
+            applyAOSEducationAnimations();
+        
+            // Re-apply animations and refresh AOS on window resize
+            window.addEventListener('resize', function() {
+                applyAOSEducationAnimations();
+            });
+        });
+        
+    </script>
+
+</body>
+
+</html>
